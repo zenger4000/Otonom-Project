@@ -1,0 +1,129 @@
+﻿@model FinalProject.ViewModels.Products
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<!-- ======= Portfolio Details Section ======= -->
+<section id="portfolio-details" class="portfolio-details">
+    <div class="container">
+
+        <div class="row gy-4">
+
+            <div class="col-lg-8">
+                <div class="portfolio-details-slider swiper">
+                    <div class="swiper-wrapper align-items-center">
+
+                        <img src="~/ProductImages/@Html.DisplayFor(model => model.Picture)" alt="">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="portfolio-info">
+                    <h3>@Html.DisplayFor(model => model.Name)</h3>
+                    <ul>
+                        <li>@Html.DisplayFor(model => model.Details)</li>
+                    </ul>
+                </div>
+                <div class="portfolio-description">
+                    <h2>Describtion</h2>
+                    <p>
+                        @Html.DisplayFor(model => model.Discription)
+                    </p>
+                    <h3> You can choose 4 sensors from the following sensors </h3>
+                    <div class="TEXTSIZE">
+                        <p> <i class="bi bi-check-circle fst-italic "></i> Motion Sensors </p>
+                        <p> <i class="bi bi-check-circle fst-italic"></i>Tempreture Sensors </p>
+                        <p> <i class="bi bi-check-circle fst-italic"></i>Magnetic Door Sensors </p>
+                        <p> <i class="bi bi-check-circle fst-italic"></i>Light Sensors </p>
+                        <p> <i class="bi bi-check-circle fst-italic"></i>Gas Sensors </p>
+
+
+
+                    </div>
+                </div>
+            </div>
+            
+            <a style="width:30%;margin-right:30px"  class="btn btn-primary" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-productId="@Model.id">
+                Add to Cart
+            </a>
+            <a style="width:30%" class="btn btn-primary" asp-controller="products" asp-action="review" asp-route-productId="@Model.id">
+                Review this product
+            </a>
+
+        </div>
+
+    </div>
+    
+</section>
+<h2 style="text-align:center">What our clients say about Products</h2>
+@foreach (var item in Model.Reviews)
+{
+<div class="lastContainer">
+
+    Client Name:&nbsp;&nbsp;<span>@item.UserName </span><span>  <h4>Rate: @item.Rating /5</h4></span>
+
+    <p >@item.Comment</p>
+</div>
+}
+    <style>
+        .lastContainer {
+            border: 2px solid #0084ce;
+            background-color: #eee;
+            border-radius: 5px;
+            padding: 16px;
+            margin: 16px 0
+        }
+
+            .lastContainer::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+
+
+            .lastContainer span {
+                font-size: 20px;
+                margin-right: 15px;
+                color: #0084ce;
+            }
+    </style>
+
+
+    <!-- End Portfolio Details Section -->
+    @*<style>
+            .container {
+                border: 2px solid #ccc;
+                background-color: #eee;
+                border-radius: 5px;
+                padding: 16px;
+                margin: 16px 0
+            }
+
+                .container::after {
+                    content: "";
+                    clear: both;
+                    display: table;
+                }
+
+                .container img {
+                    float: left;
+                    margin-right: 20px;
+                    border-radius: 50%;
+                }
+
+                .container span {
+                    font-size: 20px;
+                    margin-right: 15px;
+                }
+
+
+                .container img {
+                    margin: auto;
+                    float: none;
+                    display: block;
+                }
+        </style>*@

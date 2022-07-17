@@ -1,0 +1,91 @@
+﻿@model FinalProject.Models.Order
+
+@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<br />
+<br />
+<div style="margin: 20px 330px">
+    <h1>Edit</h1>
+
+    <h4>Order</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <input type="hidden" asp-for="OrderId" class="form-control" />
+                    <span asp-validation-for="OrderId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" asp-for="UserEmail" class="form-control" />
+                    <span asp-validation-for="UserEmail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" asp-for="OrderPlaced" value="@Model.OrderPlaced" class="form-control" />
+                    <span asp-validation-for="OrderPlaced" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" asp-for="OrderTotal" value="@Model.OrderTotal" class="form-control" />
+                    <span asp-validation-for="OrderTotal" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" readonly />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label"></label>
+                    <input asp-for="LastName" class="form-control" readonly />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" class="form-control" readonly />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="City" class="control-label"></label>
+                    <input asp-for="City" class="form-control" readonly />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Phone" class="control-label"></label>
+                    <input asp-for="Phone" class="form-control" readonly />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <select asp-for="OrderStatus">
+                        <option value="Pending">Pending</option>
+                        <option value="Progressing">Progressing</option>
+                        <option value="ON the Way">On the Way</option>
+                        <option value="Delivered">Delivered</option>
+                    </select>
+                    <label asp-for="OrderStatus" class="control-label"></label>
+
+                    <span asp-validation-for="OrderStatus" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PaymentType" class="control-label"></label>
+                    <input asp-for="PaymentType" class="form-control" />
+                    <span asp-validation-for="PaymentType" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+    </div>
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

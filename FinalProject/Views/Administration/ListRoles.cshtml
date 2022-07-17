@@ -1,0 +1,60 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<IdentityRole>
+
+@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<br />
+<br />
+<div style="margin: 20px 330px">
+    <h1>All Roles</h1>
+
+    @if (Model.Any())
+    {
+        @*<a class="btn btn-primary mb-3" style="width:auto" asp-action="CreateRole"
+           asp-controller="Administration">Add new role</a>*@
+           foreach (var role in Model)
+        {
+<div class="card mb-3">
+    <div class="card-header">
+        Role Id : @role.Id
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">@role.Name</h5>
+    </div>
+
+    <div class="card-footer">
+        <form asp-action="DeleteRole" asp-route-id="@role.Id" method="get">
+            <a class="btn btn-primary" asp-action="EditRole" asp-controller="Administration" asp-route-id="@role.Id">Edit</a>
+
+
+            <a asp-action="deleterole" asp-controller="Administration" asp-route-id="@role.Id"
+               title="delete" class="btn btn-danger delete" onclick="return confirm('Are you sure you want to delete @role.Name from roles ??')">Delete</a>
+
+        </form>
+    </div>
+</div> }
+    }
+    else
+    {
+        <div class="card">
+            <div class="card-header">
+                No roles created yet
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">
+                    Use the button below to create a role
+                </h5>
+                <a class="btn btn-primary" style="width:auto"
+                   asp-controller="Administration" asp-action="CreateRole">
+                    Create Role
+                </a>
+            </div>
+        </div>}
+
+</div>
+@section Scripts {
+    <script src="~/js/CustomScript.js"></script>
+}

@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using FinalProject.Data;
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item">
+        <a class="nav-link text-light" asp-route-Id="@UserManager.GetUserId(User)" asp-action="AccountInformation" asp-controller="account" title="Manage"> @User.Identity.Name</a>
+    </li>
+    <li class="nav-link scrollto">
+        <form class="form-inline" method="post" asp-controller="account" asp-action="logout">
+            <button type="submit" class="nav-link btn btn-link text-light">Logout</button>
+        </form>
+    </li>
+    
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link text-light" asp-controller="account" asp-action="register">Register</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-light" asp-controller="account" asp-action="login">Login</a>
+    </li>
+
+}

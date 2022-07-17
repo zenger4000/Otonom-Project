@@ -1,0 +1,401 @@
+﻿
+@{
+    ViewData["Title"] = "Otonom";
+}
+
+<main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
+                    <!-- xxxxxxxxxxxxxxxx... video ... xxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+                    <iframe src="https://www.facebook.com/plugins/video.php?height=469&href=https%3A%2F%2Fwww.facebook.com%2F102726801412552%2Fvideos%2F429886394701032%2F&show_text=false&width=560&t=0" width="100%" height="469" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                </div>
+                
+                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
+                    <h1>WHO WE ARE</h1>
+                    <br> <br>
+                    <p class="fst-italic">
+
+                    </p>
+
+                    <ul class="TEXTSIZE">
+                        <li>
+                            <i class="bi bi-check-circle fst-italic "></i> Otonom is a start-up company specialized in
+                            the field of Internet of Things, Otonom is
+                            developing and designing Remote control
+                            systems via the Internet.
+                            All products are designed and manufactured
+                            by Otonom inside Egypt
+                            .
+                        </li>
+
+                        <li><i class="bi bi-check-circle fst-italic"></i>Otonom provides advanced technological services to make your daily life much easier. Imagine If you are able to control your home even when you are outdoor. Lighting, curtains, doors, air conditioners, etc.With us, you will control your world.</li>
+
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="row TEXTSIZE">
+                <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
+                    <br> <br>
+
+
+
+                    <h1> What Is a Smart Home?</h1> <br> <br>
+                    <p>
+                        <i class="bi bi-check-circle fst-italic "></i> A smart home refers to a convenient home setup where appliances and devices can be automatically controlled remotely from anywhere with an internet connection using a mobile or other networked device. Devices in a smart home are interconnected through the internet, allowing the user to control functions such as security access to the home, temperature, lighting, and a home theater remotely.
+                    </p>
+                </div>
+
+                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content " data-aos="fade-right">
+                    <img src="~/frontend/assets/img/ezgif-1-ee3642db2f.png" class="img-fluid" alt="" srcset="">
+
+                </div>
+            </div>
+            <!-- here -->
+
+
+        </div>
+    </section>
+    <!-- End About Section -->
+    <!-- xxxxxxxxxxxx Ahmad add image xxxxxxxxxxxxxxxxxxxxx -->
+    <!-- xxxxxxxxxxxx add xxxxxxxxxxxxxxxxxxxxx -->
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-4" data-aos="fade-up">
+                    <div class="box h-100">
+                        <span>01</span>
+                        <h4>OUR VISION</h4>
+                        <p>
+                            Our dedication and hard work are focused on
+                            offering the best smart home solutions in an
+                            expanding market.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="150">
+                    <div class="box h-100">
+                        <span>02</span>
+                        <h4>OUR MISION</h4>
+                        <p>
+                            To bring the home
+                            automation process closer and make it more
+                            accessible to people by offering them high quality products that make your home take
+                            care of you.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+                    <div class="box h-100">
+                        <span>03</span>
+                        <h4> OUR GOAL</h4>
+                        <p>
+                            Otonom seeks to create a local
+                            manufacturing market for smart home
+                            products and compete with the foreign
+                            brands' quality and price.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- End Why Us Section -->
+    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+    <!-- Ahmad 2 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+    <section id="recent-blog-posts" class="recent-blog-posts">
+
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <span>Services</span>
+                <h2>Services</h2>
+                <p>
+                    Our devices can be used in halls,
+                    hotels, malls, etc., and can be used in
+                    smart agriculture and factories.
+                </p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="row ">
+                @foreach (var item in Model.Products)
+                {
+                    <div class="col-lg-4 card55">
+                        <div class="post-box">
+                            <div class="post-img"><img src="~/ProductImages/@item.Picture" class="img-fluid" alt=""></div>
+                            <h3 class="post-title">@item.Details</h3>
+                            <a asp-action="Details" asp-controller="products" asp-route-id="@item.id" class="readmore stretched-link mt-auto"><span>Details</span><i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                }
+
+                @*<div class="col-lg-4 card55">
+                <div class="post-box">
+                    <div class="post-img"><img src="~/frontend/assets/img/products/product4.jpg" class="img-fluid" alt=""></div>
+                    <h3 class="post-title">Otonom O1 / 8 gang smart switch</h3>
+                    <a href="blog-single.html" class="readmore stretched-link mt-auto"><span>Details</span><i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 card55">
+                <div class="post-box">
+                    <div class="post-img"><img src="assets/img/products/product4.jpg" class="img-fluid" alt=""></div>
+                    <h3 class="post-title">Otonom O1 / 16 gang smart switch</h3>
+                    <a href="blog-single.html" class="readmore stretched-link mt-auto"><span>Details</span><i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>*@
+
+            </div>
+        </div>
+
+
+    </section>
+    <!-- End Recent Blog Posts Section -->
+    <!-- Ahmad 2 end xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+    <!--xxxxxxxxxxxxxxxxxxxxx Ahmad images -->
+    <section id="about" class="about">
+        <div class="container">
+            <h1 class="text-center">Switch's Sensors Features </h1> <br><br><br>
+            <!-- 11111111111111111111111111111111 -->
+
+            <div class="row">
+                <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
+                    <img src="~/frontend/assets/img/smarthome.png" class="IMGNEW img-fluid" alt="">
+                </div>
+                
+                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
+                    <br><br><br><br>
+                    <h1>Motion Sensors</h1>
+                    <br> <br>
+                    <p class="fst-italic"></p>
+
+                    <p class="TEXTSIZE">
+                        <i class="bi bi-check-circle fst-italic "></i>Motion sensors can trigger alarms if motion is detected
+                    </p>
+                </div>
+            </div>
+            <!-- 222222222222222222222222222222 -->
+
+            <div class="row TEXTSIZE">
+                <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
+                    <br> <br>
+
+
+                    <br><br><br><br>
+                    <h1> Tempreture Sensors</h1> <br> <br>
+                    <p>
+                        <i class="bi bi-check-circle fst-italic "></i>Changes in temperature and humidity in a specific area can trigger a thermostat to adjust, a smart fan or heater to turn on, or smart blinds to lower or raise.
+                    </p>
+                </div>
+
+                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
+                    <img src="~/frontend/assets/img/smart2.png" class="img-fluid" alt="" srcset="">
+
+                </div>
+            </div>
+
+            <!-- 33333333333333333333333333333 -->
+            <div class="row">
+                <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
+                    <img src="~/frontend/assets/img/smart33-removebg-preview.png" class="img-fluid" alt="">
+
+                </div>
+                
+                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
+                    <br><br>
+                    <h1>Magnetic Door Sensors </h1>
+                    <br>
+                    <p class="fst-italic">
+
+                    </p>
+
+                    <p class="TEXTSIZE">
+                        <i class="bi bi-check-circle fst-italic "></i>Like telling your HVAC system to turn off whenever you open the windows (and back on when you close them). Place them on curtains, baby gates, fridges, drawers, medicine or liquor cabinets, pet doors, garage doors—anything you might want to know is being opened, left open, or accessed.
+                    </p>
+                </div>
+            </div>
+            <!-- 444444444444444444444444444444444 -->
+
+            <div class="row TEXTSIZE">
+                <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
+                    <br> <br>
+
+
+                    <br><br>
+                    <h1> Light Sensors</h1> <br> <br>
+                    <p>
+                        <i class="bi bi-check-circle fst-italic "></i>Light sensing smart devices can turn off the light switch when you don't remember to and smart bulbs let you set lighting schedules. So, even if you forget to turn the basement light off, a light sensor will do it for you.
+                    </p>
+                </div>
+
+                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
+                    <br><br>
+                    <img src="~/frontend/assets/img/ezgif-1-ee3642db2f-removebg-preview.png" class="img-fluid" alt="" srcset="">
+
+                </div>
+            </div>
+            <!-- 5555555555555555555555555555555 -->
+            <div class="row">
+                <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
+                    <img src="~/frontend/assets/img/1_WkBXTdAY7ZJ0a9d5XBPAkw-removebg-preview.png" class="img-fluid" alt="">
+
+                </div>
+                
+                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
+                    <br><br><br><br><br>
+                    <h1>Gas Sensors</h1>
+                    <br> <br>
+                    <p class="fst-italic">
+
+                    </p>
+
+                    <p class="TEXTSIZE">
+                        <i class="bi bi-check-circle fst-italic "></i>Gas sensors can trigger alarm if gas is leaked
+                    </p>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+
+
+    <!--xxxxxxxxxxxxxxxxxxxxx end Ahmad images -->
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+        <div class="container" data-aos="zoom-in">
+
+            <div class="text-center">
+                <h3>Contact Us Any Time</h3>
+                <p>For more information, do NOT hesitate to contact us!</p>
+                <a class="cta-btn" href="mailto:otonomiotegypt@gmail.com">Mail</a>
+                <a class="cta-btn" href="https://www.facebook.com/Otonom-102726801412552/" target="_blank">Facebook</a>
+            </div>
+
+        </div>
+    </section><!-- End Cta Section -->
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+        <div class="container">
+
+            <div class="section-title">
+                <span>Team</span>
+                <h2>Team</h2>
+                <p>
+                    OUR TRAINED
+                    PROFESSIONALS ARE
+                    HERE FOR YOU
+                </p>
+            </div>
+
+            <div class="row carddd">
+
+                @foreach (var item in Model.Teams)
+                {
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in">
+
+                        <div class="member">
+                            <img src="~/TeamsImages/@item.Picture" class="img-fluid" alt="">
+                            <h4>@item.Name </h4>
+                            <span>@item.position</span>
+                            <p>@item.description</p>
+                            <div class="social">
+                                <a href="@item.Facebook" target="_blsnk"><i class="bi bi-facebook"></i></a>
+                                <a href="@item.Linkdin" target="_blank"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>
+
+        </div>
+    </section><!-- End Team Section -->
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact" style="width:100%">
+        <div class="container">
+
+            <div class="section-title">
+                <span>Contact</span>
+                <h2>Contact</h2>
+            </div>
+
+            <div class="row" data-aos="fade-up">
+                <div class="col-lg-6">
+                    <div class="info-box mb-4">
+                        <i class="bx bx-map"></i>
+                        <h3>Our Address</h3>
+                        <p>Alexandria, Egypt</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="info-box  mb-4">
+                        <i class="bx bx-envelope"></i>
+                        <h3>Email Us</h3>
+                        <p>otonomiotegypt@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="info-box  mb-4">
+                        <i class="bx bx-phone-call"></i>
+                        <h3>Call Us</h3>
+                        <p>0109 072 1847</p>
+                    </div>
+                </div>
+
+            </div>
+
+            @*<div class="row" data-aos="fade-up">
+
+                <div class="col-lg-6 ">
+                </div>
+                @{
+                    <div class="col-lg-6">
+                        <form asp-action="savecontact" method="post" role="form" class="php-email-form">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <input type="text" @Html.DisplayFor() class="form-control" id="name" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                            </div>
+                            <div class="my-3">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                            </div>
+                            <div class="text-center"><button type="submit">Send Message</button></div>
+                        </form>
+                    </div>
+                }
+            </div>*@
+
+        </div>
+    </section><!-- End Contact Section -->
+
+</main><!-- End #main -->

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<FinalProject.ViewModels.Products>
+
+@{ ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/AdminLayout.cshtml"; }
+<br />
+<br />
+<br />
+<div style="margin: 20px 150px 20px 330px">
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+ 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Discription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Picture)
+                </th>
+
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Discription)
+    </td>
+
+    <td>
+        <img style="height:200px;width:300px" src="~/ProductImages/@item.Picture" asp-append-version="true" />
+    </td>
+
+    <td>
+        <a asp-action="Edit" asp-route-id="@item.id">Edit</a> 
+        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+    </td>
+</tr>
+}
+        </tbody>
+    </table>
+    </div>

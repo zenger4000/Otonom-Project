@@ -1,0 +1,47 @@
+﻿@model FinalProject.ViewModels.ShoppingCartViewModel
+
+@{ 
+    ViewData["Title"] = "Index";
+}
+<br />
+
+<h4>Shopping Cart</h4>
+<hr />
+<table class="table table-bordered table-striped table-dark">
+    <thead>
+        <tr>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>Selected Amount</th>
+            <th>Product</th>
+            <th class="text-right">Price</th>
+            <th class="text-right">Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
+        {
+        <tr>
+            <td class="text-left"><a asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-productId="@item.Product.id" alt="">Decrease Amount</a></td>
+            <td class="text-left"><a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-productId="@item.Product.id" alt="">Increase Amount</a></td>
+            <td class="text-center">@item.Amount</td>
+            <td class="text-left">@item.Product.Name</td>
+            <td class="text-right">@item.Product.price.ToString("")LE</td>
+            <td class="text-right">
+                @((item.Amount * item.Product.price).ToString(""))LE
+            </td>
+        </tr>}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="5" class="text-right">Total</td>
+            <td class="text-right">@Model.ShoppingCartTotal.ToString("")LE</td>
+        </tr>
+    </tfoot>
+</table>
+
+<div class="text-right">
+    <a class="btn btn-primary" asp-controller="ShoppingCart" asp-action="ClearCart">Clear Cart</a>
+    <a class="btn btn-primary" asp-controller="Order" asp-action="CheckOut">Check Out</a>
+    <a class="btn btn-primary" asp-controller="home" asp-action="Index">Continue Shopping</a>
+</div>

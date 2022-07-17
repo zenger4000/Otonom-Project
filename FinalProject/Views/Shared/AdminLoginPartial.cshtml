@@ -1,0 +1,17 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using FinalProject.Data;
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    @*<li class="nav-item">
+        <a class="nav-link collapsed" asp-controller="administration" asp-action="logout">
+            <i class="bi bi-box-arrow-in-right"></i>
+            <span>Logout</span>
+        </a>
+    </li>*@
+        <form class="form-inline" method="post" asp-controller="account" asp-action="logout">
+            <button type="submit" style="width:100px; border-radius:5px 20px ;background-color:gainsboro;margin-right:30px"    class="btn ">Logout</button>
+        </form>
+}

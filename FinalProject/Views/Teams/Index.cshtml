@@ -1,0 +1,106 @@
+﻿@model IEnumerable<FinalProject.ViewModels.Teams>
+
+@{ ViewData["Title"] = "Home";
+                Layout = "~/Views/Shared/AdminLayout.cshtml"; }
+<br />
+<br />
+<br />
+<div style="margin: 20px 330px">
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Picture)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Facebook)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Linkdin)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.position)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.description)
+    </td>
+    <td>
+        <img style="height:100px;width:100px" src="~/TeamsImages/@Html.DisplayFor(modelItem => item.Picture)"/>
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Facebook)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Linkdin)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.position)
+    </td>
+    <td>
+        <a asp-action="Edit" asp-route-id="@item.id">Edit</a> 
+        <a asp-action="Details" asp-route-id="@item.id">Details</a> 
+        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+    </td>
+</tr>}
+        </tbody>
+    </table>
+    </div>
+    <!-- ======= Team Section ======= -->
+    @*<section id="team" class="team">
+            <div class="container">
+
+                <div class="section-title">
+                    <span>Team</span>
+                    <h2>Team</h2>
+                    <p>
+                        OUR TRAINED
+                        PROFESSIONALS ARE
+                        HERE FOR YOU
+                    </p>
+                </div>
+
+                <div class="row carddd">
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in">
+
+                            <div class="member">
+                                <img src="~/TeamsImages/@item.Picture" alt="">
+                                <h4>@item.Name </h4>
+                                <span>@item.position</span>
+                                <p>@item.description</p>
+                                <div class="social">
+                                    <a href="@item.Facebook" target="_blsnk"><i class="bi bi-facebook"></i></a>
+                                    <a href="@item.Linkdin" target="_blank"><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                            </div>
+
+
+        </section>*@<!-- End Team Section -->
